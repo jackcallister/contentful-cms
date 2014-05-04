@@ -1,0 +1,6 @@
+<h1>Content</h1>
+
+<% @object.properties[:items].each do |article| %>
+  <%= content_tag :h1, article.fields[:title] %>
+  <%= article.fields[:content] %>
+<% end %>

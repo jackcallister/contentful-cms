@@ -1,0 +1,9 @@
+<div class="pure-u-1-1">
+  <div class="article">
+    <h1><%= @article.title %></h1>
+    <%= simple_format @article.content.html_safe %>
+    <div class="image">
+      <img src="<%= @article.mainImage.url %>">
+    </div>
+  </div>
+</div>
