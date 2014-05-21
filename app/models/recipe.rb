@@ -1,4 +1,4 @@
-class Article
+class Recipe
   attr_accessor :data
 
   def initialize(options = {})
@@ -6,19 +6,19 @@ class Article
   end
 
   def self.fetch_all(client)
-    result    = client.entries('content_type' => ENV['CONTENTFUL_ARTICLES_KEY'])
-    articles  = []
+    result    = client.entries('content_type' => ENV['CONTENTFUL_RECIPES_KEY'])
+    recipes  = []
 
     result.properties[:items].each do |item|
-      articles << Article.new(data: item)
+      recipes << Recipe.new(data: item)
     end
 
-    articles
+    recipes
   end
 
   def self.fetch(client, id)
-    item = client.entries('sys.id[in]' => id)
-    Article.new(data: item)
+    item = client.entry(id)
+    Recipe.new(data: item)
   end
 
   def method_missing(method, *args, &block)

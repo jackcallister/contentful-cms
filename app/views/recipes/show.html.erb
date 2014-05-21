@@ -1,0 +1,12 @@
+<div class="pure-u-1-1">
+  <div class="recipe">
+    <h1><%= @recipe.title %></h1>
+    <h2>Prep time: <%= @recipe.prepTimeMins %> minutes</h2>
+    <p>Season: <%= @recipe.season %></p>
+    <p>Ingredients:</p>
+    <% @ingredients.each do |ingredient| %>
+      <strong><%= ingredient.title %>: $<%= ingredient.cost %>, <%= ingredient.quantity %> <%= ingredient.measure %></strong></br>
+    <% end %>
+    <%= simple_format @recipe.instructions.html_safe %>
+  </div>
+</div>

@@ -4,9 +4,9 @@ Contentful::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :articles, only: :show
+  resources :recipes, only: :show
 
-  root 'articles#index'
+  root 'recipes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

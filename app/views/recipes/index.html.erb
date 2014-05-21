@@ -1,0 +1,8 @@
+<div class="pure-u-1-1">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <h1><%= link_to recipe.title, recipe_path(recipe.data.sys[:id]) %></h1>
+      <h2>Prep time: <%= recipe.prepTimeMins %> minutes</h2>
+    </div>
+  <% end %>
+</div>

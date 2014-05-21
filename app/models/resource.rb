@@ -5,18 +5,19 @@ class Resource
     @client = Contentful::Client.new(
       access_token: ENV['CONTENTFUL_ACCESS_TOKEN'],
       space: ENV['CONTENTFUL_SPACE'],
-      dynamic_entries: :auto,
-      resource_mapping: {
-        'Asset' => Image
-      }
+      dynamic_entries: :auto
     )
   end
 
-  def fetch_articles
-    Article.fetch_all(@client)
+  def fetch_recipes
+    Recipe.fetch_all(@client)
   end
 
-  def fetch_article(id)
-    Article.fetch(@client, id)
+  def fetch_recipe(id)
+    Recipe.fetch(@client, id)
+  end
+
+  def fetch_ingredient(id)
+    Ingredient.fetch(@client, id)
   end
 end
